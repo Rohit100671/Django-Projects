@@ -1,0 +1,42 @@
+<style>
+    form{
+        background-color: rgb(218, 215, 52);
+        width: 350px;
+        height: 150px;
+        padding: 35px;
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+
+    input{
+        background-color: rgb(224, 218, 218);
+        border-radius: 10px;
+        height: 35px;
+        display: block;
+        margin: 10px;
+    }
+
+    .class1{
+        display: inline;
+        background-color: red;
+    }
+
+</style>
+
+<center>
+<span style="color: red; font-size: 20px;">{{message}}</span>
+
+<h1 style="color: blue; font-size: 35px; font-style: italic;display: block; margin: 10px;">User LogIn</h1>
+
+<form>
+    <input name="username" placeholder="Enetr username">
+    <input type="password" name="password" placeholder="Enetr password">
+    <input class="class1" type="submit" value="logIn" formaction="/registerapp/login/" formmethod="post">
+    <input class="class1" type="submit" value="signIn" formaction="/registerapp/save/" formmethod="get">
+
+    {% csrf_token %}
+
+</form>
+
+<span style="color: red; font-size: 20px;">{{invalidmessage}}</span>
+</center>

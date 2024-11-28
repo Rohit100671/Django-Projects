@@ -1,0 +1,42 @@
+<style>
+    table{
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        width: 500px;
+        border: 2px solid black;
+    }
+    td{
+        padding: 10px;
+        border: 1px solid black;
+    }
+    .h1{
+        padding: 10px;
+        border: 1px solid black;
+        font-size: 20px;
+        font-weight: bolder;
+    }
+    </style>
+
+<center>
+<table>
+    <tr>
+        <th class="h1">UserName</th>
+        <th class="h1">Password</th>
+        <th class="h1">Mobile_Numbers</th>
+    </tr>
+
+{% for d in getallusers %}
+        <tr>
+          <!-- <td>{{d.username}}</td>
+          <td>{{d.password}}</td>
+          <td>{{d.mono}}</td> -->
+
+          {% for key, value in d.items %}
+                <td>{{value}}</td>
+          {% endfor %}
+        </tr>
+    {% endfor %}
+
+</table>
+</center>

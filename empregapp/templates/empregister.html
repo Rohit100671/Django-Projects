@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <style>
+            .form1{
+                background-color: rgb(255, 167, 3);
+                padding: 30px;
+                width: 400px;
+                height: 300px;
+                border: 2px solid black;
+                border-radius: 10px;
+            }
+
+            input{
+                background-color: rgb(211, 211, 205);
+                border-radius: 10px;
+                padding: 5px;
+                margin: 10px;
+                display: block;
+            }
+
+            #id1{
+                display: inline;
+                background-color: red;
+            }
+
+            #login1{
+                background-color: blue;
+                color: white;
+            }
+
+            .logo{
+                margin: 3px;
+                display: flex;
+                justify-content: right;
+            }
+            #r{
+                padding: 3px;
+                background-color: rgb(255, 84, 22);
+                border: 1px solid black;
+                border-radius: 6px;
+            }
+            #j{
+                padding: 5px;
+                background-color: white;
+                color: blue;
+                border: 1px solid black;
+                border-radius: 6px;
+
+            }
+            #t{
+                padding: 3px;
+                background-color: rgb(50, 238, 50);
+                border: 1px solid black;
+                border-radius: 6px;
+
+            }
+            sup{
+            margin-right: 3px;
+            }
+
+            /* table CSS  */
+            table{
+                border: 2px solid black;
+            }
+            td{
+                border: 1px solid black;   
+            }
+
+            .h1{
+                border: 1px solid black;
+            }
+
+        </style>
+
+        <!-- script functions -->
+        <script>
+
+            var xmlhttp
+            function validate(){
+                var employee_id=document.empregistration.empid.value;
+                xmlhttp=new XMLHttpRequest()
+                xmlhttp.open("get", "/check?empid=" +employee_id)
+
+                xmlhttp.onload=readResponse
+                xmlhttp.send()
+            }
+            function readResponse(){
+                var jsondata=xmlhttp.responseText;
+                var obj=JSON.parse(jsondata)
+                document.getElementById("message").innerHTML=obj.message
+            }
+
+        </script>
+
+    </head>
+<body>
+
+    <span class="logo"><sup>By</sup><span id="r">R</span><span id="j">J</span><span id="t">T</span></span>
+
+    <center>
+
+        <h1>New Employee Registration in <span style="color: orangered; font-size: 35px;">RJT Pvt.Ltd.</span></h1>
+
+        <form class="form1" name="empregistration">
+
+            <span id="message" style="color: red; font-size: 13px;"></span>
+
+            <input name="empid" placeholder="Enter Employee ID" value="{{empdata.empid}}" onblur="validate()">
+            <input name="empname" placeholder="Enter Employee Name" value="{{empdata.empname}}">
+            <input name="empdep" placeholder="Enter Employee Departments" value="{{empdata.empdep}}">
+            <input name="empmono" placeholder="Enter Employee Mobile Number" value="{{empdata.empmono}}">
+            <input id="id1" type="submit" value="Register" formaction="/empregistration/" formmethod="post">
+            <input id="id1" type="submit" value="Update" formaction="/update/">
+            <input id="id1" type="submit" value="Remove" formaction="/remove/">
+            <input id="id1" type="submit" value="View" formaction="/view/">
+            <br>
+            <a href="/login/">LogIn</a> registered user account.
+
+            {% csrf_token %}
+
+        </form>
+        
+        <span style="color: red; font-size: 15px;">{{emptymessage}}</span>
+
+
+        <table>
+            <tr>
+                <th class="h1">Emp_ID</th>
+                <th class="h1">Emp_Name</th>
+                <th class="h1">Emp_Department</th>
+                <th class="h1">Emp_Mobil_No</th>
+            </tr>
+            <tr>
+                <td>{{empdata.empid}}</td>
+                <td>{{empdata.empname}}</td>
+                <td>{{empdata.empdep}}</td>
+                <td>{{empdata.empmono}}</td>
+                </tr>
+        </table>
+
+    </center>
+
+</body>
+</html>

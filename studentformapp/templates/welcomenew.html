@@ -1,0 +1,27 @@
+<style>
+    img{
+        height: 100px;
+        width: 100px;
+        border: 1px solid black;
+        border-radius: 50%;
+    }
+    div{
+        display: flex;
+        flex-direction: row; 
+        margin-top: 0;
+    }
+</style>
+
+<html>
+    <head>
+        {% load static %}
+    </head>
+    <body>
+        <h1>Welcome to My Site</h1>
+        <div>
+            <span style="color: red; font-size: 25px;">{{message}}</span>
+        
+            <img src="{% static imagepath%}" alt="Image of Python Software">
+        </div>
+    </body>
+</html>

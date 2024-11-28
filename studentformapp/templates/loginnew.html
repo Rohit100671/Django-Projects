@@ -1,0 +1,20 @@
+<center>
+
+    <span style="color: red; font-size: 25px;">{{message}}</span>
+    <br><br>
+    <form>
+
+        <input type="text" name="username" placeholder="Enter User Name">
+        <br><br>
+        <input type="password" name="password" placeholder="Enter User password">
+        <br><br>
+        <input type="submit" value="LogIn" formmethod="post" 
+        formaction="/studentformapp/loginnew/">
+        <input type="submit" value="SignIn" formaction="/studentformapp/registerform/">
+
+        {% csrf_token %}
+
+    </form>
+    <span style="color: red; font-size: 25px;">{{failmessage}}</span>
+
+</center>

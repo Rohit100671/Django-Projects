@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Managments</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            position: sticky;
+        }
+        input[type=text]{
+            display: block;
+            margin: 10px;
+            padding: 3px;
+        }
+        input[type=submit]{
+            background-color: red;
+            color: white;
+            margin: 10px;
+            padding: 3px;
+        }
+        #navbar{
+            visibility:initial;
+            background-color: rgb(163, 143, 253);
+            height: 50px;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0px;
+            left: 0px;
+        }
+        a:hover{
+            border: 1px solid black;
+            background-color: gray;
+        }
+        #logo{
+            color: white;
+            margin-right: 200px;
+            font-size: 25px;
+            font-weight: bolder;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        #container{
+            position: sticky;
+            background-color: bisque;
+            padding: 50px;
+            height: 400px;
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+        }
+        footer{
+            background-color: rgb(51, 50, 50);
+            color: white;
+            height: 55px;
+            padding: 3px; 
+            text-align: center;
+            margin-bottom: 1px;
+        }
+        #footer{
+            text-align: center;
+            padding: 6px;
+        }
+
+        #mylogo{
+        display: flex;
+        justify-content: right;
+        text-align: center;
+        position: sticky;
+        }
+        #r{
+            padding: 3px;
+            border: 1px solid black;
+            border-radius: 3px;
+            background-color: rgb(240, 93, 40);
+            color: black;
+        }
+        #j{
+            padding: 3px;
+            border: 1px solid black;
+            border-radius: 3px;
+            background-color: white;
+            color: blue;
+        }
+        #t{
+            padding: 3px;
+            border: 1px solid black;
+            border-radius: 3px;
+            background-color: green;
+            color: black;
+        }
+        sup{
+            margin-right: 6px;
+            font-size: 10px;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <form>
+        <header>
+            <div id="navbar">
+                <span id="logo">RJT's Hospital</span>
+                <!-- <a href="#">Contact Us</a>
+                <a href="#">About Hospital</a> -->
+                <a style="color: blue;" href="/hospitalapp/rjthospital.com">Home</a>
+            </div>
+        </header>
+        <section id="container">    
+            <h1>Welcome To RJT Hospital's</h1>
+            <br>
+            <input type="text" name="id" placeholder="Enter Doctor ID" value="{{doctordata.id}}">
+            <input type="text" name="name" placeholder="Enter Doctor Name" value="{{doctordata.name}}">
+            <input type="text" name="dep" placeholder="Enter Department Name" value="{{doctordata.dep}}">
+            <input type="text" name="mono" placeholder="Enter Doctor Mobile Number" value="{{doctordata.mono}}">
+            <br>
+            <span style="color: red;">{{message}}</span>
+            <br>
+            <span>
+            <input type="submit" value="Doctor_Records" formaction="/ospitalapp/doctorlist/" formmethod="post">
+            <input type="submit" value="Register" formaction="/hospitalapp/newregistration/" formmethod="post">
+            <input type="submit" value="View" formaction="/hospitalapp/view/" formmethod="post">
+            <input type="submit" value="Update" formaction="/hospitalapp/update/" formmethod="post">
+            <input type="submit" value="Delete" formaction="/hospitalapp/delete/" formmethod="post">
+                    
+
+            {% csrf_token %}
+                    
+            </span>
+            <br>
+            <h1><a style="color: blue;" href="/hospitalapp/login">Click Here</a>To LogIn Back.</h1>
+            
+        </section>
+        <footer>
+            <div id="footer">
+                copyright &copy; www.RJT's Hospital Managments.com. All rights reserved!
+            </div>
+            <span id="mylogo"><sup>By</sup><span id="r">R</span><span id="j">J</span><span id="t">T</span></span>
+        </footer>
+    </form>
+</body>
+</html>

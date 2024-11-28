@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <style>
+            form{
+                background-color: rgb(218, 215, 52);
+                width: 350px;
+                height: 250px;
+                padding: 25px;
+                border: 2px solid black;
+                border-radius: 10px;
+            }
+
+            input{
+                background-color: rgb(224, 218, 218);
+                border-radius: 10px;
+                height: 35px;
+                display: block;
+                margin: 10px;
+            }
+
+            #id1{
+                display: inline;
+                background-color: red;
+            }
+
+        </style>
+
+        <script>
+
+            var xmlhttp;
+            function validate()
+            {
+
+                var username=document.registerform.username.value;
+                xmlhttp=new XMLHttpRequest();
+                xmlhttp.open("get","/registerapp/check?username="+username)
+
+                xmlhttp.onload=readResponse;
+                xmlhttp.send();
+
+            }
+
+            function  readResponse()
+            {
+
+                var jsondata=xmlhttp.responseText;
+                var obj=JSON.parse(jsondata)
+                document.getElementById("message").innerHTML=obj.message;
+
+            }
+
+
+        </script>
+
+</head>
+<body>
+    <center>
+        <h1 style="color: blue; font-style: italic; font-size: 35px;">Sign-In Your Account</h1>
+        <form name="registerform">
+            <span id="message" style="color: red; font-size: 15px;"></span>
+            <input name="username" placeholder="Enetr username" onblur="validate()">
+            <input type="password" name="password" placeholder="Enetr password">
+            <input name="mono" placeholder="Enter mobile number">
+            <input id="id1" type="submit" value="Register" formaction="/registerapp/save/" formmethod="post">
+            <br><br>
+            <a href="/registerapp/login/">Click Here </a>to Log-In Already Present User Acoount.
+
+            {% csrf_token %}
+
+        </form>
+</center>
+</body>
+</html>

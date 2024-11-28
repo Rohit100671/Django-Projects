@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Managments</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            position: sticky;
+        }
+        input[type=submit]{
+            background-color: red;
+            color: white;
+            margin: 10px;
+            padding: 3px;
+        }
+        #navbar{
+            visibility:initial;
+            background-color: orangered;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0px;
+            left: 0px;
+        }
+        #logo{
+            color: white;
+            margin-right: 200px;
+            font-size: 25px;
+            font-weight: bolder;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        #container{
+            position: sticky;
+            background-color: bisque;
+            padding: 50px;
+            height: 400px;
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+        }
+        h3{
+            padding: 20px;
+        }
+        footer{
+            background-color: rgb(51, 50, 50);
+            color: white;
+            height: 55px;
+            padding: 3px; 
+            text-align: center;
+            margin-bottom: 1px;
+        }
+        #footer{
+            text-align: center;
+            padding: 6px;
+        }
+
+        #mylogo{
+        display: flex;
+        justify-content: right;
+        text-align: center;
+        position: sticky;
+        }
+        #r{
+            padding: 3px;
+            border: 1px solid black;
+            border-radius: 3px;
+            background-color: rgb(240, 93, 40);
+            color: black;
+        }
+        #j{
+            padding: 3px;
+            border: 1px solid black;
+            border-radius: 3px;
+            background-color: white;
+            color: blue;
+        }
+        #t{
+            padding: 3px;
+            border: 1px solid black;
+            border-radius: 3px;
+            background-color: green;
+            color: black;
+        }
+        sup{
+            margin-right: 6px;
+            font-size: 10px;
+            color: white;
+        }
+        /* Table CSS */
+        h1{
+            padding: 13px;
+        }
+        table{
+            text-align: center;
+            border: 2px solid black;
+        }
+        td{
+            padding: 3px;
+            border: 2px solid black;
+        }
+        th{
+            padding: 3px;
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div id="navbar">
+            <span id="logo" href="#">RJT's Hospital Managments</span>
+            <a href="#">Contact Us</a>
+            <a href="#">About Hospital</a>
+        </div>
+    </header>
+    <section>    
+        <form>
+            <div id="container">
+                <h1>Record of all Registered Doctors in RJT's Hospital Managments</h1>
+                <table>
+                    <tr>
+                        <th>Doctor_ID</th>
+                        <th>Doctor_Name</th>
+                        <th>Doctor_Department</th>
+                        <th>Doctor_Mobile No</th>
+                    </tr>
+                    {% for list in doctordata %}
+
+                        <tr>
+                            <td>{{list.id}}</td>
+                            <td>{{list.name}}</td>
+                            <td>{{list.dep}}</td>
+                            <td>{{list.mono}}</td>
+                        </tr>
+
+                    {% endfor %}
+                </table>
+            </div>
+
+
+        </form>
+    </section>
+    <footer>
+        <div id="footer">
+            copyright &copy; www.RJT's Hospital Managments.com. All rights reserved!
+        </div>
+        <span id="mylogo"><sup>By</sup><span id="r">R</span><span id="j">J</span><span id="t">T</span></span>
+    </footer>
+
+</body>
+</html>

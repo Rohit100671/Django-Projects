@@ -1,0 +1,64 @@
+<style>
+     table{
+        border: 2px solid black;
+    }
+    td{
+        border: 1px solid black;   
+    }
+
+    th{
+        border: 2px solid black;
+    }
+    .logo{
+        margin: 3px;
+        display: flex;
+        justify-content: right;
+    }
+    #r{
+        padding: 3px;
+        background-color: rgb(255, 84, 22);
+        border: 1px solid black;
+        border-radius: 6px;
+    }
+    #j{
+        padding: 5px;
+        background-color: white;
+        color: blue;
+        border: 1px solid black;
+        border-radius: 6px;
+
+    }
+    #t{
+        padding: 3px;
+        background-color: rgb(50, 238, 50);
+        border: 1px solid black;
+        border-radius: 6px;
+
+    }
+    sup{
+    margin-right: 3px;
+    }
+
+
+</style>
+
+<span class="logo"><sup>By</sup><span id="r">R</span><span id="j">J</span><span id="t">T</span></span>
+
+
+
+<table>
+        <tr>
+            <th>Emp_ID</th>
+            <th>Emp_Name</th>
+            <th>Emp_Department</th>
+            <th>Emp_Mobil_No</th>
+        </tr>
+        {%  for emplist in getalltabledata %}
+            <tr>
+                <td>{{emplist.empid}}</td>
+                <td>{{emplist.empname}}</td>
+                <td>{{emplist.empdep}}</td>
+                <td>{{emplist.empmono}}</td>
+            </tr>
+        {% endfor %}
+    </table>

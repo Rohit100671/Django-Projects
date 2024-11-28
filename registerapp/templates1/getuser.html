@@ -1,0 +1,33 @@
+<center>
+<!-- <form>
+    <input type="text" name="eid" placeholder="Enter Employee ID">
+    <br><br>
+    <input type="text" name="ename" placeholder="Enter Employee Name">
+    <br><br>
+    <input type="text" name="esalary" placeholder="Enter Employee salary">
+    <br><br>
+    <input type="text" name="emono" placeholder="Enter Employee Mobile Number">
+    <br><br>
+    <input type="submit" value="register" formaction="">
+    <br><br>
+</form> -->
+
+<table>
+    <tr>
+        <th>EmployeeID</th>
+        <th>EmployeeName</th>
+        <th>EmployeeSlary</th>
+        <th>Employeemono</th>
+    </tr>
+        {% for i in empdata %}
+            <tr>
+                <td>{{i.eid}}</td>
+                <td>{{i.ename}}</td>
+                <td>{{i.esalary}}</td>
+                <td>{{i.emono}}</td>
+            </tr>
+        {% endfor %}
+
+</table>
+
+</center>

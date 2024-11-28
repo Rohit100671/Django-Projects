@@ -1,0 +1,22 @@
+<center>
+    <!-- <form action="/studentformapp/registerdata/" method="POST" name="registerform" enctype="multipart/form-data"> -->
+
+        <!-- {% csrf_token %} -->
+    <form method="POST" name="registerform" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <input name="username" placeholder="Enter User Name">
+        <br><br>
+        <input type="password" name="password" placeholder="Enter User password">
+        <br><br>
+        <input type="email" name="email" placeholder="Enter User Email ID">
+        <br><br>
+        <input name="mono" placeholder="Enter User Mobile Number">
+        <br><br>
+        <input type="file" name="photo">
+        <br><br>
+        <input type="submit" value="Register" formaction="/studentformapp/registerform/">
+        
+    </form>
+</center>

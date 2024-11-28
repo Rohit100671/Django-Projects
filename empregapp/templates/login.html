@@ -1,0 +1,74 @@
+<style>
+    #f1{
+        display: inline;
+        background-color: red;
+    }
+
+    input{
+       background-color: rgb(211, 211, 205);
+        height: 35px;
+        border-radius: 10px;
+        display: block;
+        margin: 10px;
+    }
+
+    form{
+        background-color: orange;
+        padding: 25px;
+        width: 350px;
+        height: 150px;
+        border-radius: 20px;
+        border: 2px solid black;
+        
+    }
+    .logo{
+        margin: 3px;
+        display: flex;
+        justify-content: right;
+    }
+    #r{
+        padding: 3px;
+        background-color: rgb(255, 84, 22);
+        border: 1px solid black;
+        border-radius: 6px;
+    }
+    #j{
+        padding: 5px;
+        background-color: white;
+        color: blue;
+        border: 1px solid black;
+        border-radius: 6px;
+
+    }
+    #t{
+        padding: 3px;
+        background-color: rgb(50, 238, 50);
+        border: 1px solid black;
+        border-radius: 6px;
+
+    }
+    sup{
+    margin-right: 3px;
+    }
+
+
+</style>
+
+<span class="logo"><sup>By</sup><span id="r">R</span><span id="j">J</span><span id="t">T</span></span>
+
+<center>
+<!-- <span style="color: red; font-size: 20px;">{{empregistermessage}}</span> -->
+
+<h1 style="color: blue; font-size: 25px; font-style: italic;">Log-In Your Account</h1>
+<form>
+    <input name="empid" placeholder="Enter Employee ID">
+    <input name="empname" placeholder="Enter Employee Name">
+    <input id="f1" type="submit" value="LogIn" formaction="/login/" formmethod="post">
+    <input id="f1" type="submit" value="SignIn" formaction="/empregistration/" formmethod="get">
+
+    {% csrf_token %}
+
+</form>
+
+<span style="color: red; font-size: 20px;">{{deploginmessage}}</span>
+</center>
